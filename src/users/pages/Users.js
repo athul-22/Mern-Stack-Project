@@ -4,8 +4,8 @@ import UsersList from '../components/UsersList'
 const Users = () => {
   const USERS =[{
     id: 'u1',
-    name: 'Max Schwarz',
-    image: 'https://images.unsplash.com/photo-1612833603929-4b6b7e2b2b0f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80',
+    name: 'Athul Nambiar',
+    image: 'https://media.licdn.com/dms/image/D5603AQEkDDWTYSaj7g/profile-displayphoto-shrink_400_400/0/1682436233552?e=1692835200&v=beta&t=i__7sOTN4Np8LXmP1LLQHMyqTd3aM7u7mb1x7it0s3A',
     places: 3
   }]
   return <UsersList items={USERS}/>
