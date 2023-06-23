@@ -3,7 +3,12 @@ import "../components/UsersItem.css"
 
 const UsersItem = () => {
   return (
-    <div>Users item</div>
+      <li className='user_item'>
+        <div className='user_item__content'>
+
+        </div>
+      </li>
+     
   )
 }
 

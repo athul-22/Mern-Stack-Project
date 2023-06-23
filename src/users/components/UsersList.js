@@ -10,7 +10,7 @@ const UsersList = props => {
     }
 
     return (
-        <ul>
+        <ul className='user_list'>
             {props.items.map(users => (
                 <UsersItem 
                     key={users.id} 
