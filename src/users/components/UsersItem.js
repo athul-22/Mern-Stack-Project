@@ -8,8 +8,7 @@ const UsersItem = props => {
   return (
 
       <li className='user-item'>
-        <div className='user-item__content'>
-          <Card>
+          <Card className='user-item__content'>
           <Link to={`/${props.id}/place`}>
           <div className='user-item__image'>
             <Avatar image={props.image} alt={props.name}/>
@@ -21,7 +20,7 @@ const UsersItem = props => {
           </div>
           </Link>
           </Card>
-        </div>
+       
       </li>
      
   )
