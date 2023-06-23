@@ -4,9 +4,9 @@ import "../components/UsersItem.css"
 const UsersItem = props => {
   return (
 
-      <li className='user_item'>
-        <div className='user_item__content'>
-          <div className='user_item__image'>
+      <li className='user-item'>
+        <div className='user-item__content'>
+          <div className='user-item__image'>
             <img src={props.image} alt={props.name} />
           </div>
           <div className='user_item__info'>
