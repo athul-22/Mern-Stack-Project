@@ -9,9 +9,9 @@ const UsersItem = props => {
           <div className='user-item__image'>
             <img src={props.image} alt={props.name} />
           </div>
-          <div className='user_item__info'>
+          <div className='user-item__info'>
             <h2>{props.name}</h2>
-            <h4>{props.placeCount}</h4> {props.placeCount ===1 ? 'Place' : 'Places'}
+            <h3>{props.placeCount}</h3> {props.placeCount ===1 ? 'Place' : 'Places'}
           </div>
         </div>
       </li>
