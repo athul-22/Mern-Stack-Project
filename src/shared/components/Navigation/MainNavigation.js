@@ -3,9 +3,17 @@ import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import MainHeader from "./MainHeader";
 import NavLinks from "./NavLinks";
 import './MainNavigation.css';
+import SideDrawer from "./SideDrawer";
 
 const MainNavigation = props => {
-    return( <MainHeader>
+    return( 
+        <React.Fragment>
+    <MainHeader>
+        <SideDrawer>
+            <nav className="main-navigation__drawer-nav">
+                <NavLinks/>
+            </nav>
+        </SideDrawer>
         <button className="main-navigation__menu-btn">
             <span />
             <span />
@@ -19,5 +27,6 @@ const MainNavigation = props => {
             <NavLinks/>
         </nav>
     </MainHeader>
+    </React.Fragment>
 )}
 export default MainNavigation;
