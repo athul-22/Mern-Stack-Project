@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import MainHeader from "./MainHeader";
-import './MianNavigation.css'
+import './MainNavigation.css'
 
 const MainNavigation = props => {
     <MainHeader>
@@ -21,4 +21,4 @@ const MainNavigation = props => {
     </MainHeader>
 }
 
-export default MainNavigation
+export default MainNavigation;
