@@ -5,6 +5,7 @@ import Card from '../../shared/components/UIElements/Cards/Card'
 const Placeitem = props => {
   return (
     <li className='place-item'>
+        <Card className="place-item__content">
         <div className='place-item__image'>
             <img src={props.image}/>
         </div>
@@ -18,6 +19,7 @@ const Placeitem = props => {
             <button>Edit</button>
             <button>Delete</button>
         </div>
+        </Card>
     </li>
   )
 }
