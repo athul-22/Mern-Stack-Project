@@ -18,7 +18,7 @@ const UsersPlaces = () => {
       },
     },
     {
-      id: 'p2',
+      creator: 'p2',
       title: 'Empire State Building',
       description: 'One of the most famous sky scrapers in the world!',
       imageUrl: 'https://www.planetware.com/wpimages/2019/11/india-best-places-to-visit-agra.jpg',
