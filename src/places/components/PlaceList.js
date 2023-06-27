@@ -1,5 +1,5 @@
 import React from 'react'
-import './PlaceItem.css'
+import './PlaceList.css'
 import Card from '../../shared/components/UIElements/Cards/Card'
 import Placeitem from './Placeitem'
 
@@ -15,7 +15,7 @@ const PlaceList = props => {
 
   return(
     <div className='place-list'>
-        {props.item.map( place=> <Placeitem key={place.id} id={place.id} image={place.imageURL} title={place.title} description={place.description} address={place.address} creatorID={place.creator} coordinates={place.location}  /> )}
+        {props.item.map( place=> <Placeitem key={place.id} id={place.id} image={place.imageUrl} title={place.title} description={place.description} address={place.address} creatorID={place.creator} coordinates={place.location}  /> )}
     </div>
   )
 }

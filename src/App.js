@@ -3,6 +3,7 @@ import './App.css';
 import Users from './users/pages/Users';
 import NewPlaces from './places/pages/NewPlaces';
 import MainNavigation from './shared/components/Navigation/MainNavigation';
+import UsersPlaces from './places/pages/usersPlaces';
 
 const App = () =>  {
   return (
@@ -12,6 +13,7 @@ const App = () =>  {
         <Switch>
         <Route path="/" exact> <Users/> </Route>
         <Route path="/newplace" exact> <NewPlaces/> </Route>
+        <Route path ="/u1/places" exact> <UsersPlaces/> </Route>
         {/* <Redirect to="/"/> */}
         </Switch>
         </main>
