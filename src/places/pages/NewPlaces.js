@@ -5,7 +5,7 @@ import Input from '../../shared/FormElements/input';
 const NewPlaces = () => {
   return (
     <form className='place-form'>
-      <Input element="input" type="text" label="title" validators={[]} errorText="enter a valid text"/>
+      <Input element="input" type="text" label="title" errorText="enter a valid text" />
     </form>
   );
 };
