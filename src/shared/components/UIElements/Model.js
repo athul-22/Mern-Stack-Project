@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { ReactDOM } from "react";
 import './Model.css'
 import Backdrop from "./backDrop";
 import { CSSTransition } from "react-transition-group";
 
 const ModelOverlay = props => {
+
+    
 
     const content = (
         <div className={`model ${props.className}`} style={props.style}>

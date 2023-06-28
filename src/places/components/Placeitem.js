@@ -1,10 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './PlaceItem.css'
 import Card from '../../shared/components/UIElements/Cards/Card';
 import Button from '../../shared/FormElements/Button';
+import Model from '../../shared/components/UIElements/Model';
 
 const Placeitem = props => {
+
+  const [showMap , setShowMap ] = useState(false);
+
+    const openMapHandler = () => setShowMap(true);
+    const closeMapHandler = () => setShowMap(false);
+
   return (
+    <React.Fragment>
+      <Model show={showMap} onCancel={closeMapHandler} header={props.address} contentClass="place-item__model-content" footerClass="place-item__model-actions" footer={<Button onClick={closeMapHandler}>CLOSE</Button>}/>
     <li className='place-item'>
         <Card className="place-item__content">
         <div className='place-item__image'>
@@ -22,6 +31,7 @@ const Placeitem = props => {
         </div>
         </Card>
     </li>
+    </React.Fragment>
   )
 }
 
