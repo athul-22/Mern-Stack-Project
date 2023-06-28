@@ -36,7 +36,9 @@ const Model = props => {
             unmountOnExit
             timeout={200}
             classNames="model"
-        ></CSSTransition>
+        >
+            <ModelOverlay {...props} />
+        </CSSTransition>
             
     </React.Fragment>
 }
