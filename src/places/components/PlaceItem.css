@@ -53,3 +53,8 @@
       height: 20rem;
     } 
   }
+
+  .map-container{
+    height: 100rm;
+    width: 100%;
+  }

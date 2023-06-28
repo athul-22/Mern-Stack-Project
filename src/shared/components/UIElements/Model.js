@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { ReactDOM } from "react";
+import ReactDOM from "react-dom" 
 import './Model.css'
 import Backdrop from "./backDrop";
 import { CSSTransition } from "react-transition-group";
 
 const ModelOverlay = props => {
-
     
 
     const content = (
@@ -23,9 +22,7 @@ const ModelOverlay = props => {
             </form>
 
         </div>
-
     )
-
     return ReactDOM.createPortal(content, document.getElementById("model-hook"));
 }
 
