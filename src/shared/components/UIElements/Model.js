@@ -8,15 +8,15 @@ const ModelOverlay = props => {
     
 
     const content = (
-        <div className={`model ${props.className}`} style={props.style}>
-            <header className={`model__header ${props.headerClass}`}>
+        <div className={`modal ${props.className}`} style={props.style}>
+            <header className={`modal__header ${props.headerClass}`}>
                 <h2>{props.header}</h2>
             </header>
             <form onSubmit={props.onSubmit ? props.onSubmit : (event) => event.preventDefault()}>
-                <div className={`model__content ${props.contentClass}`}>
+                <div className={`modal__content ${props.contentClass}`}>
                     {props.children}
                 </div>
-                <footer className={`model__footer ${props.footerClass}`}>
+                <footer className={`modal__footer ${props.footerClass}`}>
                     {props.footer}
                 </footer>
             </form>

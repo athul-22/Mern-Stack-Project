@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import './NewPlaces.css';
 
 const NewPlaces = () => {
   return (
-    <div>NewPlaces</div>
+    <form>
+      
+    </form>
   )
 }
 
