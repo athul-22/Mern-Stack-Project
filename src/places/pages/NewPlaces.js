@@ -4,9 +4,20 @@ import './NewPlaces.css';
 import Input from '../../shared/FormElements/input';
 
 const NewPlaces = () => {
+
+  const titleInputHandler = (id, value , isValid) => {
+
+  }
+
   return (
     <form className='place-form'>
-      <Input element="input" type="text" label="title" errorText="enter a valid text" validators={[VALIDATOR_REQUIRE()]}/>
+      <Input 
+      element="input" 
+      type="text" label="title" 
+      errorText="enter a valid text" 
+      validators={VALIDATOR_REQUIRE()}
+      onInput={titleInputHandler}
+      />
     </form>
   );
 };
