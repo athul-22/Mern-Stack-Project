@@ -19,7 +19,8 @@ const NewPlaces = () => {
       <Input
         id="title"
         element="input"
-        type="text" label="title"
+        type="text" 
+        label="Title"
         errorText="enter a valid text"
         validators={[VALIDATOR_REQUIRE()]}
         onInput={titleInputHandler}
@@ -28,7 +29,7 @@ const NewPlaces = () => {
         id="description"
         element="textArea"
         type="text"
-        label="title"
+        label="Description"
         errorText="enter a valid text"
         validators={[VALIDATOR_REQUIRE()]}
         onInput={descriptionHandler}
