@@ -1,12 +1,53 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useReducer } from 'react';
 import { VALIDATOR_REQUIRE } from '../../shared/util/validator';
 import './NewPlaces.css';
 import Input from '../../shared/FormElements/input';
+import Button from '../components'
+
+const formReducer = (state,action) => {
+  switch(action.type){
+    case 'INPUT_CHANGE':
+      let formValid = true;
+      for (const inputId in state.inputs){
+        if(inputId === action.inputId ){
+          formIsValid = formIsValid && action.isValid
+        }
+        else{
+          formIsValid = formIsValid && state.inputs[inputId].isValid;
+        }
+      }
+      return{
+        ...state, 
+        inputs: {
+          ...state.inputs,
+          [action.inputId]: {value: action.value, isValid: action.isValid};
+
+        }
+        isValid: formIsValid;
+      };
+    default:
+      return state;
+  }
+}
 
 const NewPlaces = () => {
 
-  const titleInputHandler = useCallback((id, value, isValid) => {
+  const [ formState , dispatch ] = useReducer(formReducer,{
+    inputs:{
+      title: {
+        value: '',
+        isValid: false
+      },
+      description: {
+        value: '',
+        isValid: false
+      }
+    },
+    isValid:
+  });
 
+  const inputInputHandler = useCallback((id, value, isValid) => {
+    dispatch({type: 'INPUT_CHANGE',value: value , isValid: isValid , inputId: inputId  })
   }, []);
 
   const descriptionHandler = useCallback((id, value, isValid) => {
@@ -23,7 +64,7 @@ const NewPlaces = () => {
         label="Title"
         errorText="enter a valid text"
         validators={[VALIDATOR_REQUIRE()]}
-        onInput={titleInputHandler}
+        onInput={inputInputHandler}
       />
       <Input
         id="description"
@@ -32,7 +73,7 @@ const NewPlaces = () => {
         label="Description"
         errorText="enter a valid text"
         validators={[VALIDATOR_REQUIRE()]}
-        onInput={descriptionHandler}
+        onInput={inputInputHandler}
       />
     </form>
   );
