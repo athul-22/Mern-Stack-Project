@@ -60,6 +60,7 @@ const Input = props => {
             rows={props.rows || 3}
             value={inputState.value}
             onBlur={touchHandler}
+            onChange={changeHandler}
         />);
 
     return (<div className={`form-control ${!inputState.isValid && inputState.isTouched && 'form-control--invalid'}`}>
