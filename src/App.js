@@ -13,11 +13,12 @@ const App = () =>  {
         <main>
         <Switch>
         <Route path="/" exact> <Users/> </Route>
-        
-        <Route path ="/:userId/places" exact> <UsersPlaces/> </Route>
+       
         <Route path="/places/new" exact> <NewPlaces/> </Route>
-        <Route path = "/places/:userId"><updatePlace/></Route>
+        <Route path ="/:userId/places" exact> <UsersPlaces/> </Route>
+        <Route path = "/places/:placeId"> <updatePlace/> </Route>
         {/* <Redirect to="/"/> */}
+
         </Switch>
         </main>
       </Router>
