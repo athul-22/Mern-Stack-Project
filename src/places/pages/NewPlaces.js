@@ -70,7 +70,7 @@ const NewPlace = () => {
       />
       <Input
         id="description"
-        element="textarea"
+        element="textArea"
         type="text"
         label="Description"
         validators={[VALIDATOR_MINLENGTH(5)]}
