@@ -1,39 +1,36 @@
 import React, { useCallback, useReducer } from 'react';
-import { VALIDATOR_REQUIRE } from '../../shared/util/validator';
-import './NewPlaces.css';
 import Input from '../../shared/FormElements/input';
-import Button from '../components'
+import Button from '../../shared/FormElements/Button';
+import { VALIDATOR_REQUIRE, VALIDATOR_MINLENGTH } from '../../shared/util/validator';
+import './NewPlaces.css';
 
-const formReducer = (state,action) => {
-  switch(action.type){
+const formReducer = (state, action) => {
+  switch (action.type) {
     case 'INPUT_CHANGE':
-      let formValid = true;
-      for (const inputId in state.inputs){
-        if(inputId === action.inputId ){
-          formIsValid = formIsValid && action.isValid
-        }
-        else{
+      let formIsValid = true;
+      for (const inputId in state.inputs) {
+        if (inputId === action.inputId) {
+          formIsValid = formIsValid && action.isValid;
+        } else {
           formIsValid = formIsValid && state.inputs[inputId].isValid;
         }
       }
-      return{
-        ...state, 
+      return {
+        ...state,
         inputs: {
           ...state.inputs,
-          [action.inputId]: {value: action.value, isValid: action.isValid};
-
-        }
-        isValid: formIsValid;
+          [action.inputId]: { value: action.value, isValid: action.isValid }
+        },
+        isValid: formIsValid
       };
     default:
       return state;
   }
-}
+};
 
-const NewPlaces = () => {
-
-  const [ formState , dispatch ] = useReducer(formReducer,{
-    inputs:{
+const NewPlace = () => {
+  const [formState, dispatch] = useReducer(formReducer, {
+    inputs: {
       title: {
         value: '',
         isValid: false
@@ -43,40 +40,46 @@ const NewPlaces = () => {
         isValid: false
       }
     },
-    isValid:
+    isValid: false
   });
 
-  const inputInputHandler = useCallback((id, value, isValid) => {
-    dispatch({type: 'INPUT_CHANGE',value: value , isValid: isValid , inputId: inputId  })
+  const inputHandler = useCallback((id, value, isValid) => {
+    dispatch({
+      type: 'INPUT_CHANGE',
+      value: value,
+      isValid: isValid,
+      inputId: id,
+    });
   }, []);
 
-  const descriptionHandler = useCallback((id, value, isValid) => {
-
-  }, []);
-
+  const placeSubmitHandler = event =>{
+    event.PreventDeault()
+  }
 
   return (
-    <form className='place-form'>
+    <form className="place-form" onSubmit={placeSubmitHandler}>
       <Input
         id="title"
         element="input"
-        type="text" 
+        type="text"
         label="Title"
-        errorText="enter a valid text"
         validators={[VALIDATOR_REQUIRE()]}
-        onInput={inputInputHandler}
+        errorText="Please enter a valid title."
+        onInput={inputHandler}
       />
       <Input
         id="description"
-        element="textArea"
-        type="text"
+        element="textarea"
         label="Description"
-        errorText="enter a valid text"
-        validators={[VALIDATOR_REQUIRE()]}
-        onInput={inputInputHandler}
+        // validators={[VALIDATOR_MINLENGTH(5)]}
+        errorText="Please enter a valid description (at least 5 characters)."
+        onInput={inputHandler}
       />
+      <Button type="submit" >
+        ADD PLACE
+      </Button>
     </form>
   );
 };
 
-export default NewPlaces
+export default NewPlace;
