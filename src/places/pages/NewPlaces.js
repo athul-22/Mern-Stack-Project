@@ -53,7 +53,8 @@ const NewPlace = () => {
   }, []);
 
   const placeSubmitHandler = event =>{
-    event.PreventDeault()
+    event.PreventDeault();
+    console.log(formState.inputs)
   }
 
   return (
@@ -70,8 +71,9 @@ const NewPlace = () => {
       <Input
         id="description"
         element="textarea"
+        type="text"
         label="Description"
-        // validators={[VALIDATOR_MINLENGTH(5)]}
+        validators={[VALIDATOR_MINLENGTH(5)]}
         errorText="Please enter a valid description (at least 5 characters)."
         onInput={inputHandler}
       />
