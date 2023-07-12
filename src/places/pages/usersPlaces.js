@@ -28,6 +28,17 @@ const UsersPlaces = () => {
             lng:72.333,
       },
     },
+    {
+      id: 'p3',
+      title: 'pink tree',
+      description: 'One of the most famous sky scrapers in the world!',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/a/a2/1121098-pink-nature-wallpaper-1920x1080-lockscreen.jpg',
+      address: "test adddress",
+      location: {
+            lat:3003333,
+            lng:72.333,
+      },
+    },
   ]
 
   const userId = useParams().uid;
