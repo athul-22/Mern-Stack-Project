@@ -44,8 +44,10 @@ const UpdatePlace = () => {
     return <h1>update place</h1>
 }
 
-if(!placeId){
-    return<h2>Could not find place</h2>
-}
+if(!identifiedPlace){
+    return(
+    <h2>Could not find place</h2>
+    );
+};
 
 export default UpdatePlace;
