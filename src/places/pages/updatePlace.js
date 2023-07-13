@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Input from "../../shared/FormElements/input";
 import Button from "../../shared/FormElements/Button";
 import './placeForm.css';
+import { useForm } from "../../shared/hooks/form-hooks";
 
 const UpdatePlace = () => {
 
@@ -45,26 +46,43 @@ const UpdatePlace = () => {
     
     const placeId = useParams().placeId;
     const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
+
+    const [formState , inputHandler] = useForm({
+        title:{
+            value:identifiedPlace.title,
+            isValid:true
+        },
+        description:{
+            value:identifiedPlace.description,
+            isValid:true
+        }
+    },true)
+
+    const placeUpdateSubmitHandler = event => {
+        event.preventDefault();
+        console.log(formState.inputs);
+    }
+
     if (!identifiedPlace) {
         return (
-            <form className="place-form ">
+            <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
                 <Input
                     id="title" 
                     element="input" 
                     type="text" 
                     label="Title" 
-                    onInput={()=>{}}
-                    value={identifiedPlace.title}
-                    valid={true}
+                    onInput={inputHandler}
+                    initialValue={formState.inputs.title.value}
+                    initialValid={formState.inputs.title.valid}
                     />
 
                     <Input
                     id="description" 
                     element="textArea" 
                     label="Description" 
-                    onInput={()=>{}}
-                    value={identifiedPlace.description}
-                    valid={true}
+                    onInput={inputHandler}
+                    initialValue={formState.inputs.description.value}
+                    initialValid={formState.inputs.description.valid}
                     />
                     <Button type="submit">SUBMIT</Button>
             </form>

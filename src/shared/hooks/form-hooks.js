@@ -38,5 +38,6 @@ const formReducer = (state, action) => {
           inputId: id,
         });
       }, []);
-    
+      
+    return [formState, inputHandler]
   }

@@ -7,6 +7,22 @@ import { useForm } from '../../shared/hooks/form-hooks';
 
 
 const NewPlace = () => {
+
+  const [formState, inputHandler] = useForm({
+    title: {
+      value: '',
+      isValid:false
+    },
+    description: {
+      value: '',
+      isValid:false
+    },
+    address: {
+      value: '',
+      isValid:false
+    }
+  },false
+  );
   
   const placeSubmitHandler = event =>{
     event.PreventDeault();
