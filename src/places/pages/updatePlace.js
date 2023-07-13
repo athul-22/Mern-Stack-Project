@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Input from "../../shared/FormElements/input";
 import Button from "../../shared/FormElements/Button";
-
+import './placeForm.css';
 
 const UpdatePlace = () => {
 
@@ -47,7 +47,7 @@ const UpdatePlace = () => {
     const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
     if (!identifiedPlace) {
         return (
-            <form>
+            <form className="place-form ">
                 <Input
                     id="title" 
                     element="input" 
