@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import Input from "../../shared/FormElements/input";
 import Button from "../../shared/FormElements/Button";
 
-const DUMMY_PLACES = [
+export const DUMMY_PLACES = [
     {
         id: 'p1',
         title: 'Empire State Building',
