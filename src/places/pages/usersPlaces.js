@@ -7,6 +7,7 @@ const UsersPlaces = () => {
 
   
   const userId = useParams().uid;
+  
   const loadPlaces = DUMMY_PLACES.filter(place => place.creator ===userId)
 
   return <PlaceList item={loadPlaces}/>
