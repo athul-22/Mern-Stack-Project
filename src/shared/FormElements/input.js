@@ -27,6 +27,7 @@ const Input = props => {
         isTouched: false, 
         isValid: props.valid || false 
     });
+    
     // const [valid, isValid ] = inputState()
 
     const { id, onInput } = props;
