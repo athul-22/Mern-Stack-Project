@@ -1,4 +1,5 @@
 import { useCallback, useReducer } from "react";
+import { act } from "react-dom/test-utils";
 
 const formReducer = (state, action) => {
     switch (action.type) {
@@ -19,6 +20,11 @@ const formReducer = (state, action) => {
           },
           isValid: formIsValid
         };
+        case 'SET_DATA':
+          return{
+            inputs:action.inputs,
+            isValid:action.formIsValid
+          }
       default:
         return state;
     }
@@ -39,5 +45,15 @@ const formReducer = (state, action) => {
         });
       }, []);
       
-    return [formState, inputHandler]
+
+      const setFormData = useCallback((inputData , formValidity)=>{
+        dispatch({
+          type: 'SET_DATA',
+          inputs: inputData,
+          formIsValid:formValidity
+        })
+
+      },[]);
+
+    return [formState, inputHandler , setFormData]
   }
