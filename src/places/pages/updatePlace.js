@@ -63,7 +63,7 @@ const UpdatePlace = () => {
         console.log(formState.inputs);
     }
 
-    if (!identifiedPlace) {
+    if(!identifiedPlace){
         return (
             <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
                 <Input
@@ -88,7 +88,6 @@ const UpdatePlace = () => {
             </form>
         );
     };
-
     return <h1>update place</h1>
 }
 
