@@ -47,7 +47,7 @@ const UpdatePlace = () => {
 
     const [formState , inputHandler] = useForm({
         title:{
-            value:identifiedPlace.title,
+            value:'',
             isValid:true
         },
         description:{
@@ -86,6 +86,7 @@ const UpdatePlace = () => {
             </form>
         );
     };
+
     // return <h1>update place</h1>
 }
 
