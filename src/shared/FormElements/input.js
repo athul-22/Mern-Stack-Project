@@ -38,7 +38,10 @@ const Input = props => {
     }, [id, valid, isValid, onInput]);
 
     const changeHandler = event => {
-        dispatch({ type: 'change', val: event.target.value, validators: props.validators })
+        dispatch({ 
+            type: 'change', 
+            val: event.target.value, 
+            validators: props.validators })
     }
 
     const touchHandler = () => {

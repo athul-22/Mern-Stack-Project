@@ -6,7 +6,6 @@ import './placeForm.css';
 import { useForm } from "../../shared/hooks/form-hooks";
 
 const UpdatePlace = () => {
-
     const DUMMY_PLACES = [
         {
             id: 'p1',
@@ -42,7 +41,6 @@ const UpdatePlace = () => {
             },
         },
     ]
-
     
     const placeId = useParams().placeId;
     const identifiedPlace = DUMMY_PLACES.find(p => p.id === placeId);
@@ -63,7 +61,7 @@ const UpdatePlace = () => {
         console.log(formState.inputs);
     }
 
-    if(!identifiedPlace){
+    if(identifiedPlace){
         return (
             <form className="place-form" onSubmit={placeUpdateSubmitHandler}>
                 <Input
@@ -88,9 +86,7 @@ const UpdatePlace = () => {
             </form>
         );
     };
-    return <h1>update place</h1>
+    // return <h1>update place</h1>
 }
-
-
 
 export default UpdatePlace;
