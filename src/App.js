@@ -39,7 +39,7 @@ const App = () =>  {
       <Switch>
          <Route path="/" exact> <Users/> </Route>
          <Route path ="/:userId/places" exact> <UsersPlaces/> </Route>
-       
+         <Route path = "/authenticaton"> <Auth/> </Route>
       </Switch>
     )
   }
