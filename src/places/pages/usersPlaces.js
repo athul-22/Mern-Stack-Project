@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min'
 const DUMMY_PLACES = [
   {
     id: 'p1',
-    title: 'Empire State Building',
+    title: 'Empire    Building',
     description: 'One of the most famous sky scrapers in the world!',
     imageUrl: 'https://www.planetware.com/wpimages/2019/11/india-best-places-to-visit-agra.jpg',
     address: "test adddress",
