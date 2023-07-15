@@ -7,13 +7,40 @@ import Model from '../../shared/components/UIElements/Model';
 const Placeitem = props => {
 
   const [showMap , setShowMap ] = useState(false);
+  const [showConfirmModa , setShowConfirmModal ] = useState(false);
 
     const openMapHandler = () => setShowMap(true);
     const closeMapHandler = () => setShowMap(false);
 
+    const setDeleteHandler = () => {
+      setShowConfirmModal(true);
+    }
+
+    const cancelDeleteHandler = () => {
+      setShowConfirmModal(false);
+    }
+
   return (
     <React.Fragment>
-      <Model show={showMap} onCancel={closeMapHandler} header={props.address} contentClass="place-item__model-content" footerClass="place-item__model-actions" footer={<Button onClick={closeMapHandler}>CLOSE</Button>}/>
+      {/*✅ MODEL 1 */}
+      <Model 
+      show={showMap} 
+      header={props.address} 
+      footerClass="place-item__model-actions" 
+      footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
+      />
+
+      <Model header="DELETE" footerClass="place-item__modal-actions" footer={
+        <React.Fragment>
+          <Button inverse>CANCEL</Button>
+          <Button danger>DELETE</Button>
+        </React.Fragment>
+      }>
+     <p>Delete cant be undo</p>
+
+      </Model>
+    
+    
       <div className='map-container'>
         <h2>THE MAP</h2>
       </div>

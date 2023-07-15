@@ -5,6 +5,7 @@ import Button from "../../shared/FormElements/Button";
 import './placeForm.css';
 import { useForm } from "../../shared/hooks/form-hooks";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validator";
+import Card from "../../shared/components/UIElements/Cards/Card";
 
 const UpdatePlace = () => {
 
@@ -85,7 +86,10 @@ const UpdatePlace = () => {
         setIsloADING(false)
     },[setFormData.identifiedPlace])
 
-    
+    if(!identifiedPlace){
+        return <Card><center><h2>Could not find place</h2></center></Card>
+    }
+
     if(isLoading){
         return <h3>Loading</h3>
     }
