@@ -1,3 +1,4 @@
+import React, { useState , useCallback} from 'react';
 import { BrowserRouter as Router , Route , Switch , Redirect} from 'react-router-dom/cjs/react-router-dom.min';
 import './App.css';
 import Users from './users/pages/Users';
@@ -9,8 +10,19 @@ import Auth from './users/pages/auth';
 import { Authcontext } from './shared/context/auth-contex';
 
 const App = () =>  {
+
+  const [isLoggedin , setIsLoginMode ] = useState(false);
+
+  const login = useCallback(() => {
+    setIsLoginMode(true);
+  },[]);
+
+  const logout = useCallback(() => {
+    setIsLoginMode(false);
+  },[]);
+
   return (
-    <Authcontext.Provider>
+    <Authcontext.Provider value={{isLoggedIn:isLoggedin, login:login, logout:logout}}>
       <Router>
         <MainNavigation/>
         <main>
