@@ -21,20 +21,45 @@ const App = () =>  {
     setIsLoginMode(false);
   },[]);
 
-  return (
-    <Authcontext.Provider value={{isLoggedIn:isLoggedin, login:login, logout:logout}}>
-      <Router>
-        <MainNavigation/>
-        <main>
-        <Switch>
+  let routes;
+
+  if(isLoggedin){
+    routes = (
+      <Switch>
         <Route path="/" exact> <Users/> </Route>
         <Route path="/places/new" exact> <NewPlaces/> </Route>
         <Route path ="/:userId/places" exact> <UsersPlaces/> </Route>
         <Route path = "/places/:placeId"> <UpdatePlace/> </Route>
         <Route path = "/authenticaton"> <Auth/> </Route>
         <Redirect to="/" />
+      </Switch>
+    );
+  }else{
+    routes = (
+      <Switch>
+         <Route path="/" exact> <Users/> </Route>
+         <Route path ="/:userId/places" exact> <UsersPlaces/> </Route>
+       
+      </Switch>
+    )
+  }
 
-        </Switch>
+  return (
+    <Authcontext.Provider value={{isLoggedIn:isLoggedin, login:login, logout:logout}}>
+      <Router>
+        <MainNavigation/>
+        <main>
+        {/* <Switch> */}
+        {/* <Route path="/" exact> <Users/> </Route>
+        <Route path="/places/new" exact> <NewPlaces/> </Route>
+        <Route path ="/:userId/places" exact> <UsersPlaces/> </Route>
+        <Route path = "/places/:placeId"> <UpdatePlace/> </Route>
+        <Route path = "/authenticaton"> <Auth/> </Route>
+        <Redirect to="/" /> */}
+
+        {routes}
+
+        {/* </Switch> */}
         </main>
       </Router>
       </Authcontext.Provider>
