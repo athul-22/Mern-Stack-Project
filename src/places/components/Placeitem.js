@@ -7,17 +7,21 @@ import Model from '../../shared/components/UIElements/Model';
 const Placeitem = props => {
 
   const [showMap , setShowMap ] = useState(false);
-  const [showConfirmModa , setShowConfirmModal ] = useState(false);
+  const [showConfirmModal , setShowConfirmModal ] = useState(false);
 
     const openMapHandler = () => setShowMap(true);
     const closeMapHandler = () => setShowMap(false);
 
-    const setDeleteHandler = () => {
+    const setShowDeleteHandler = () => {
       setShowConfirmModal(true);
     }
 
     const cancelDeleteHandler = () => {
       setShowConfirmModal(false);
+    }
+
+    const confirmDeleteHandler = () => {
+      console.log("SUCCESSFULLY DELETED");
     }
 
   return (
@@ -30,10 +34,14 @@ const Placeitem = props => {
       footer={<Button onClick={closeMapHandler}>CLOSE</Button>}
       />
 
-      <Model header="DELETE" footerClass="place-item__modal-actions" footer={
+      {/*✅ MODEL 2 */}
+      <Model
+      show={showConfirmModal}
+      onCancel={cancelDeleteHandler}
+      header="DELETE" footerClass="place-item__modal-actions" footer={
         <React.Fragment>
-          <Button inverse>CANCEL</Button>
-          <Button danger>DELETE</Button>
+          <Button onClick={cancelDeleteHandler} inverse>CANCEL</Button>
+          <Button onClick={confirmDeleteHandler} danger>DELETE</Button>
         </React.Fragment>
       }>
      <p>Delete cant be undo</p>
@@ -57,7 +65,7 @@ const Placeitem = props => {
         <div className='place-item__actions'>
             <Button inverse onClick={openMapHandler}>View on Map</Button>
             <Button to={`/places/${props.id}`}>Edit</Button>
-            <Button danger>Delete</Button>
+            <Button onClick={setShowDeleteHandler} danger>Delete</Button>
         </div>
         </Card>
     </li>
