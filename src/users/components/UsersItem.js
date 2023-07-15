@@ -3,6 +3,7 @@ import "../components/UsersItem.css"
 import Avatar from '../../shared/components/UIElements/Avatar/Avatar'
 import Card from '../../shared/components/UIElements/Cards/Card'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import '../components/UsersItem.css';
 
 const UsersItem = props => {
   return (
